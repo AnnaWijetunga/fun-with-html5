@@ -29,6 +29,16 @@ let isDrawing = false; // when clicking down on element and move mouse and let g
 let lastX = 0;
 let lastY = 0;
 
+function draw(e) {
+    if(!isDrawing) return; // stop function from running when they're not moused down
+
+}
+
+// event listeners for moving, down, up and out
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', () => isDrawing = true);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
 </script>
 
 <style>
