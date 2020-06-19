@@ -34,7 +34,9 @@ function draw(e) {
     // shows start/end xy values when dragging mouse
     // console.log(e);
     ctx.beginPath();
-    
+    ctx.moveTo(lastX, lastY);
+    // those values come from actual event that happens
+    ctx.lineTo(e.offsetX, e.offsetY);
 }
 
 // event listeners for moving, down, up and out
