@@ -19,6 +19,7 @@ canvas.height = window.innerHeight;
 
 // base settings with stroke style
 ctx.strokeStyle = '#BADASS'; // color
+ctx.lineWidth = hue;
 ctx.lineJoin = 'round'; // end of line is round
 ctx.lineCap = 'round'; // when a line meets another line
 ctx.lineWidth = 50;
@@ -48,7 +49,9 @@ function draw(e) {
     // lastX = e.offsetX;
     // lastY = e.offsetY;
     hue++;
-    
+    if(hue >= 360) {
+        hue = 0;
+    };
 }
 
 // event listeners for moving, down, up and out
