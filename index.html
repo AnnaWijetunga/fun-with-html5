@@ -47,8 +47,13 @@ function draw(e) {
 }
 
 // event listeners for moving, down, up and out
+// update last x and y rather than starting at 0 an d0
+canvas.addEventListener('mousedown', () => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', () => isDrawing = true);
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
 </script>
