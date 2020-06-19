@@ -18,9 +18,12 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // base settings with stroke style
-ctx.strokeStyle = '#BADASS';
-ctx.lineJoin = 'round';
-ctx.lineCap = 'round';
+ctx.strokeStyle = '#BADASS'; // color
+ctx.lineJoin = 'round'; // end of line is round
+ctx.lineCap = 'round'; // when a line meets another line
+
+// dummy variables
+let isDrawing = false; // when clicking down on element and move mouse and let go, nothing happens; our flag to tell us, should we draw or is someone just moving their mouse
 
 
 </script>
