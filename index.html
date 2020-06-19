@@ -21,6 +21,7 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = '#BADASS'; // color
 ctx.lineJoin = 'round'; // end of line is round
 ctx.lineCap = 'round'; // when a line meets another line
+ctx.lineWidth = 50;
 
 // dummy variables
 let isDrawing = false; // when clicking down on element and move mouse and let go, nothing happens; our flag to tell us, should we draw or is someone just moving their mouse
@@ -28,11 +29,13 @@ let isDrawing = false; // when clicking down on element and move mouse and let g
 // need a starting X and Y and an ending X and Y
 let lastX = 0;
 let lastY = 0;
+let hue = 0;
 
 function draw(e) {
     if(!isDrawing) return; // stop function from running when they're not moused down
     // shows start/end xy values when dragging mouse
     // console.log(e);
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     // start from
     ctx.moveTo(lastX, lastY);
@@ -44,11 +47,13 @@ function draw(e) {
     [lastX, lastY] = [e.offsetX, e.offsetY]
     // lastX = e.offsetX;
     // lastY = e.offsetY;
+    hue++;
+    
 }
 
 // event listeners for moving, down, up and out
 // update last x and y rather than starting at 0 an d0
-canvas.addEventListener('mousedown', () => {
+canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY];
 });
